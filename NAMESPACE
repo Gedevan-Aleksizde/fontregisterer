@@ -2,4 +2,4 @@
 
 export(get_standard_font)
 export(get_styles)
-export(register_Fonts)
+export(register_all_fonts)
