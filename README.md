@@ -6,7 +6,7 @@
 R上で
 
 ```r
-remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL)
+remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
 ```
 
 を入力するか, `git clone` してから `setwd(...); install.packages("./", repos = NULL)`
