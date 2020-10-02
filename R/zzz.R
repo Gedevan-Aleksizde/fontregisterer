@@ -1,5 +1,5 @@
 .onLoad <- function(libname, pkgname){
-  register_Fonts()
+  register_all_fonts()
 
   if(Sys.info()["sysname"] == "Windows"){
     print(names(windowsFonts()))
