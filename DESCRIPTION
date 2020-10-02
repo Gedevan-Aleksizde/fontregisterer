@@ -4,6 +4,9 @@ Title: Cross-platform Auto Font Registerer For R Graphics
 Version: 0.1.0
 Author@R: person("Satoshi", "Katagiri", email = "katagiri.stsh@gmail.com", role = c("aut", "cre")) 
 Description: This package registers all your system fonts to R Graphic device when imported.
+Imports:
+  tidyverse,
+  systemfonts
 License: 
 Encoding: UTF-8
 LazyData: true
