@@ -6,5 +6,7 @@
   }
   if(Sys.info()["sysname"] == "Darwin"){
     names(quartzFonts())
+  } else {
+    print("This package does nothing if your operating system is not Mac or Windows.")
   }
 }
