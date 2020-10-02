@@ -4,29 +4,31 @@
 #' @return  character vector of length 4: It's elements are names of plain, bold, italic, and bold italic font./長さ4の文字列ベクトル. 要素は順に標準, ボールド, イタリック, ボールドイタリック体のpostscript名.
 #' @export
 get_styles <- function(data){
-  data$style <- with(data, factor(tolower(style), c("normal", "regular", "medium", "bold italic", "W3")))
-  normal <- dplyr::filter(data, width == "normal", weight == "normal")
-  if(NROW(normal) > 0){
-    normal <- normal
+  styles <- c("plain", "normal", "regular", "medium", "bold", "italic", "bolditalic", "w3")
+  styles_plain <- c("plain", "normal", "regular", "medium", "w3")
+  data$style <- with(data, factor(tolower(style), styles))
+  plain <- dplyr::filter(data, width == "normal", weight == "normal")
+  if(NROW(plain) > 0){
+    plain <- plain
   } else {
-    normal <- data
+    plain <- data
   }
-  if(NROW(dplyr::filter(normal, style %in% c("regular", "normal", "medium", "bold italic", "W3"))) > 0){
-    normal <- dplyr::arrange(normal, style)$name[1]
+  if(NROW(dplyr::filter(plain, style %in% styles_plain)) > 0){
+    plain <- dplyr::arrange(plain, style)$name[1]
   } else {
-    normal <- normal$name[1]
+    plain <- plain$name[1]
   }
-  bold <- filter(data, style == "bold")
+  bold <- dplyr::filter(data, style == "bold")
   if(NROW(bold) > 0){
     bold <- bold$name[1]
   } else {
-    bold <- normal
+    bold <- plain
   }
   italic <- dplyr::filter(data, style == "italic" | italic)
   if(NROW(italic) > 0){
     italic <- italic$name[1]
   } else {
-    italic <- normal
+    italic <- plain
   }
   bi <- dplyr::filter(data, style == "bold italic")
   if(NROW(bi) > 0){
@@ -34,5 +36,5 @@ get_styles <- function(data){
   } else {
     bi <- italic
   }
-  return(c(normal = normal, bold = bold, italic = italic, bolditalic = bi))
+  return(c(plain = plain, bold = bold, italic = italic, bolditalic = bi))
 }
