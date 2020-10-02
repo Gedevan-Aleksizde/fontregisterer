@@ -19,8 +19,7 @@ register_Fonts <- function(){
   }
   if(Sys.info()["sysname"] == "Windows"){
     do.call(windowsFonts, setNames(lapply(f$family, windowsFont), f$family))
-  }
-  if(Sys.info()["sysname"] == "Darwin"){
+  } else if(Sys.info()["sysname"] == "Darwin"){
     do.call(quartzFonts, setNames(lapply(f$style, quartzFont), f$family))
   }
 }
