@@ -7,7 +7,7 @@ Description: This package registers all your system fonts to R Graphic device wh
 Imports:
   tidyverse,
   systemfonts
-License: 
+License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
