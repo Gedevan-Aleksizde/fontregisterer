@@ -1,15 +1,39 @@
 # Cross-platform Auto Font Registerer For R Graphics
+
 全てのシステムフォントをRグラフィックスに登録するだけのパッケージ (クロスプラットフォーム)
 
-## インストール方法
+## Installation
 
-R上で
+run the following command
 
 ```r
 remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
 ```
 
-を入力するか, `git clone` してから `setwd(...); install.packages("./", repos = NULL)`
+## Usage
+
+This package registers the system font automatically when loaded
+
+```r
+library(fontregisterer)
+```
+
+You can also reload by executing `register_all_fonts()`.
+
+You can check the list of loaded fonts by `windowsFonts()` or `quartzFonts()`.
+
+You can specify font family name to standard `graphics` and `ggplot2`
+
+
+
+
+## インストール方法
+
+R で以下を実行する
+
+```r
+remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
+```
 
 ## 使い方
 
