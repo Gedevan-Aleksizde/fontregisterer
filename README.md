@@ -25,7 +25,7 @@ You can check the list of loaded fonts by `windowsFonts()` or `quartzFonts()`.
 You can specify font family name to standard `graphics` and `ggplot2`
 
 
-
+ALL YOUR FONTS ARE BELONG TO　YOU...
 
 ## インストール方法
 
@@ -46,3 +46,5 @@ library(fontregisterer)
 登録されたフォントファミリを確認したい場合は `windowsFonts()` または  `quartzFonts()` を実行する.
 
 登録されたフォントファミリ名は標準グラフィックにも `ggplot2` にも指定可能.
+
+ALL YOUR FONTS ARE BELONG TO　YOU...
