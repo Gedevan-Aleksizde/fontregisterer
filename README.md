@@ -4,7 +4,7 @@
 
 ## Installation
 
-run the following R command
+run the following command in R
 
 ```r
 remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
