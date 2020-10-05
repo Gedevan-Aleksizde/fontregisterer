@@ -63,14 +63,14 @@ library(fontregisterer)
 ```r
 par(family = "Yu Gothic")
 plot(0, 0)
-text(0, 0, "日本語表示で広がるWindowsの世界")
+text(0, 0, "日本語表示で広がるRの世界")
 ```
 
 `ggplot2` なら
 
 ```r
 require(ggplot2)
-ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がるWindowsの世界")) +
+ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がるRの世界")) +
   geom_point(family = "Yu Gothic") +
   labs(x = "X軸ラベル", y = "Y軸ラベル", title = "タイトル") +
   theme(text = element_text(family = "Yu Gothic"))
