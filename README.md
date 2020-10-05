@@ -36,7 +36,7 @@ ALL YOUR FONT ARE BELONG TO YOU...
 
 ## インストール方法
 
-R で以下を実行する
+R で以下を実行してください
 
 ```r
 remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
@@ -50,13 +50,13 @@ remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type =
 library(fontregisterer)
 ```
 
-で読み込んだ時点で作動する. Windows なら `windowsFonts()`, Mac なら `quartzFonts()` を使用してシステムフォントを全て登録する. やり直したかったら `register_all_fonts()` を実行する.
+で読み込んだ時点で作動します. Windows なら `windowsFonts()`, Mac なら `quartzFonts()` を使用してシステムフォントを全て登録します. やり直したかったら `register_all_fonts()` を実行してください.
 
-登録されたフォントファミリを確認したい場合は `windowsFonts()` または  `quartzFonts()` を実行する.
+登録されたフォントファミリを確認したい場合は `windowsFonts()` または  `quartzFonts()` を実行してください.
 
-登録されたフォントファミリ名は標準グラフィックにも `ggplot2` にも指定可能.
+登録されたフォントファミリ名は標準グラフィックにも `ggplot2` にも指定可能です.
 
-例えば, Windowsならば `"Yu Mincho"` (游明朝), `Yu Gothic` (游ゴシック) などを, Mac なら `"Hiagino Mincho ProN"` (ヒラギノ明朝ProN), `"Hiragino Sans"` (ヒラギノ角ゴシック) などを指定可能.
+例えば, Windows (8以降) ならば `"Yu Mincho"` (游明朝), `Yu Gothic` (游ゴシック) などを, Mac なら `"Hiagino Mincho ProN"` (ヒラギノ明朝ProN), `"Hiragino Sans"` (ヒラギノ角ゴシック) などを指定可能です.
 
 グラフのフォント指定は例えば標準グラフィックスなら
 
@@ -74,7 +74,7 @@ ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がる
   geom_point() + theme(text = element_text(family = "Yu Gothic"))
 ```
 
-詳しくは以下を参考にしてください
+詳しくは以下を参考にしてください.
 
 https://ill-identified.hatenablog.com/entry/2020/10/03/200618
 
