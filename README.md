@@ -71,7 +71,9 @@ text(0, 0, "日本語表示で広がるWindowsの世界")
 ```r
 require(ggplot2)
 ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がるWindowsの世界")) +
-  geom_point() + theme(text = element_text(family = "Yu Gothic"))
+  geom_point(family = "Yu Gothic") +
+  labs(x = "X軸ラベル", y = "Y軸ラベル", title = "タイトル") +
+  theme(text = element_text(family = "Yu Gothic"))
 ```
 
 詳しくは以下を参考にしてください.
