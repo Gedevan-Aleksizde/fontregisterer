@@ -14,6 +14,9 @@ run the following command in R
 remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
 ```
 
+This package depends on `tidyverse` and `systemfonts`.
+
+
 ## Usage
 
 This package registers all of your system fonts automatically when loaded. this procedure is executed by `widowsFonts()` (when Windows OS) or `quartzFonts()` (when Mac OS).
@@ -38,6 +41,8 @@ R で以下を実行する
 ```r
 remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
 ```
+
+このパッケージは `tidyverse` と `systemfonts` に依存しています.
 
 ## 使い方
 
