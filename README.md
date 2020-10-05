@@ -2,6 +2,10 @@
 
 全てのシステムフォントをRグラフィックスに登録するだけのパッケージ (クロスプラットフォーム)
 
+**お使いのOSがLINUXの場合は不要です**
+
+**You don't have to use this package if your OS is LINUX**
+
 ## Installation
 
 run the following command in R
