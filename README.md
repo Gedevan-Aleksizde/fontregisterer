@@ -69,5 +69,8 @@ ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がる
   geom_point() + theme(text = element_text(family = "Yu Gothic"))
 ```
 
+詳しくは以下を参考にしてください
+
+https://ill-identified.hatenablog.com/entry/2020/10/03/200618
 
 ALL YOUR FONT ARE BELONG TO YOU...
