@@ -4,7 +4,7 @@
 
 **お使いのOSがLINUXの場合は不要です**
 
-**You don't have to use this package if your OS is LINUX**
+**You don't have to use this package if your Operating System is LINUX**
 
 ## Installation
 
