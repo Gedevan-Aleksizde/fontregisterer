@@ -29,7 +29,7 @@ You can also reload by executing `register_all_fonts()`.
 
 You can check the list of loaded fonts by `windowsFonts()` or `quartzFonts()`.
 
-You can specify font family name to standard `graphics` and `ggplot2`
+You can specify font family name to standard `graphics` and `ggplot2`.
 
 
 ALL YOUR FONT ARE BELONG TO YOU...
@@ -50,7 +50,7 @@ remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type =
 library(fontregisterer)
 ```
 
-で読み込んだ時点で作動します. Windows なら `windowsFonts()`, Mac なら `quartzFonts()` を使用してシステムフォントを全て登録します. やり直したかったら `register_all_fonts()` を実行してください.
+で読み込んだ時点で作動します. Windows なら `windowsFonts()`, Mac なら `quartzFonts()` を使用してシステムフォントを全て登録します. やり直したかったら `register_all_fonts()` を実行してください (例えば使用中に新しくフォントをインストールしたなどの場合).
 
 登録されたフォントファミリを確認したい場合は `windowsFonts()` または  `quartzFonts()` を実行してください.
 
