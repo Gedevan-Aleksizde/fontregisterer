@@ -12,7 +12,7 @@ remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type =
 
 ## Usage
 
-This package registers all of your system fonts automatically when loaded
+This package registers all of your system fonts automatically when loaded. this procedure is executed by `widowsFonts()` (when Windows OS) or `quartzFonts()` (when Mac OS).
 
 ```r
 library(fontregisterer)
@@ -41,10 +41,29 @@ remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type =
 library(fontregisterer)
 ```
 
-で読み込んだ時点で作動する. やり直したかったら `register_all_fonts()` を実行する.
+で読み込んだ時点で作動する. Windows なら `windowsFonts()`, Mac なら `quartzFonts()` を使用してシステムフォントを全て登録する. やり直したかったら `register_all_fonts()` を実行する.
 
 登録されたフォントファミリを確認したい場合は `windowsFonts()` または  `quartzFonts()` を実行する.
 
 登録されたフォントファミリ名は標準グラフィックにも `ggplot2` にも指定可能.
+
+例えば, Windowsならば `"Yu Mincho"` (游明朝), `Yu Gothic` (游ゴシック) などを, Mac なら `"Hiagino Mincho ProN"` (ヒラギノ明朝ProN), `"Hiragino Sans"` (ヒラギノ角ゴシック) などを指定可能.
+
+グラフのフォント指定は例えば標準グラフィックスなら
+
+```r
+par(family = "Yu Gothic")
+plot(0, 0)
+text(0, 0, "日本語表示で広がるWindowsの世界")
+```
+
+`ggplot2` なら
+
+```r
+require(ggplot2)
+ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がるWindowsの世界")) +
+  geom_point() + theme(text = element_text(family = "Yu Gothic"))
+```
+
 
 ALL YOUR FONT ARE BELONG TO YOU...
