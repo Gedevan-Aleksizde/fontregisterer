@@ -12,7 +12,7 @@ remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type =
 
 ## Usage
 
-This package registers the system font automatically when loaded
+This package registers all of your system font automatically when loaded
 
 ```r
 library(fontregisterer)
