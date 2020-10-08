@@ -29,7 +29,7 @@ You can also reload by executing `register_all_fonts()`.
 
 You can check the list of loaded fonts by `windowsFonts()` or `quartzFonts()`.
 
-You can specify font family name to standard `graphics` and `ggplot2`.
+You can specify font family name to charts drawn by both `graphics` and `ggplot2`.
 
 
 ALL YOUR FONT ARE BELONG TO YOU...
