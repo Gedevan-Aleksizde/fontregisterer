@@ -1,0 +1,9 @@
+citHeader("To cite fontregisterer in publications, please use:")
+
+citEntry(entry = "misc",
+  author = "Katagiri, Satoshi",
+  title = "fontregisterer",
+  year = "2020",
+  url = "https://github.com/Gedevan-Aleksizde/fontregisterer",
+  textVersion = "Katagiri, Satoshi. `fontregisterer`, 2020."
+)
