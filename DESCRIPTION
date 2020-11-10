@@ -1,11 +1,11 @@
 Package: fontregisterer
 Type: Package
 Title: Cross-platform Auto Font Registerer For R Graphics
-Version: 0.1.1
+Version: 0.2
 Author@R: person("Satoshi", "Katagiri", email = "katagiri.stsh@gmail.com", role = "aut") 
 Description: This package registers all your system fonts to R Graphic device when imported.
 Imports:
-  tidyverse,
+  tidyverse (>= 1.2.1),
   systemfonts (>= 0.3.2)
 BugReports: https://github.com/Gedevan-Aleksizde/fontregisterer/issues
 License: MIT | file LICENSE
