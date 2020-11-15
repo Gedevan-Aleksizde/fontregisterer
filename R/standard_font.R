@@ -1,6 +1,19 @@
-#' @title get OS standard font
+#' @title get OS standard font families
 #' @export
-get_standard_font <- function(){
+#' @description get OS-tandard Japanese font family names
+#' @return character vector of length 2. These elements are names of (1) Sans (Gothic) and (2) Serif (Mincho), Japanese font families which are installed standardly in your operating system.
+#' @details This function returns character vector of length 2 which are standard Japanese font families for each operating system. Thus these families are OS-specified:
+#'
+#' | OS            | Sans                 | Serif                    |
+#' | ------------- |:--------------------:|:------------------------:|
+#' | Linux         | `"Noto Sans CJK JP"` | `"Noto Serif CJK JP"`    |
+#' | Mac           | `"Hiragino Sans"`    | `"Hiragino Mincho ProN"` |
+#' | Windows (>=8) | `"Yu Gothic"`        | `"Yu Gothic"`            |
+#' | Windows (<8)  | `"MS Gothic"`        | `"MS Mincho"`            |
+#'
+#' @md
+#'
+get_standard_ja_fonts <- function(){
   if(Sys.info()["sysname"] == "Windows"){
     if(as.integer(str_extract(Sys.info()["release"], "^[0-9]+")) >=8){
       # 游書体はWindows 8 以降は入っているはず
@@ -34,9 +47,9 @@ get_standard_font <- function(){
 #' @export
 #' @title set standard \code{sans}/\code{serif} family so that to refer the OS standard font
 #' @description change default Serif/Sans Serif fonts for Windows & Mac OS / Windows および Mac で \code{sans}/\code{serif} の参照するフォントを変更する. デフォルトはOSごとの標準日本語フォント
-set_standard_font <- function(sans = NULL, serif = NULL){
+set_standard_ja_font <- function(sans = NULL, serif = NULL){
   if(Sys.info()["sysname"] == "Linux") stop("This function is invalid for Linux OS. If you want to change default font, please check out your system fontconfig or insteadly using quartz device.")
-  familes <- get_standard_font()
+  familes <- get_standard_ja_font()
   if(!is.null(sans) && is.character(sans)) families["sans"] <- sans
   if(!is.null(serif) && is.character(serif)) families["serif"] <- serif
   if(Sys.info()["sysname"] == "Windows"){
@@ -49,6 +62,6 @@ set_standard_font <- function(sans = NULL, serif = NULL){
       serif = quartzFont(rep(families["serif"], 4))
     )
   }
-  cat("font family `sans` will refer to", families["sans"])
-  cat("font family `serif` will refer to", families["serif"])
+  message(paste("font family `sans` will refer to", families["sans"]))
+  message(paste("font family `serif` will refer to", families["serif"]))
 }

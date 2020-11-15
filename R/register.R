@@ -2,6 +2,7 @@
 #' @description register all system fonts obtained from `systemfonts` package by `windowsFonts` or `quartzFonts`/ `systemfonts` で取得したフォント名を全てOS固有のデバイス (`windowsFonts`, `quartzFonts`) に登録する.
 #' @export
 register_all_fonts <- function(){
+  # TODO: dis-tidyversanize
   if(Sys.info()["sysname"] %in% c("Darwin", "Windows")){
     f <- dplyr::mutate(
       tidyr::nest(
