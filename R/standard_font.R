@@ -48,7 +48,7 @@ get_standard_ja_fonts <- function(){
 #' @importFrom systemfonts system_fonts
 #' @title set standard \code{sans}/\code{serif} family so that to refer the OS standard font
 #' @description change default Serif/Sans Serif fonts for Windows & Mac OS / Windows および Mac で \code{sans}/\code{serif} の参照するフォントを変更する. デフォルトはOSごとの標準日本語フォント
-set_standard_ja_fonts <- function(sans = NULL, serif = NULL){
+set_ja_font_standard <- function(sans = NULL, serif = NULL){
   if(Sys.info()["sysname"] == "Linux") stop("This function is invalid for Linux OS. If you want to change default font, please check out your system fontconfig")
   families <- get_standard_ja_fonts()
   if(!is.null(sans) && is.character(sans)) families["sans"] <- sans
