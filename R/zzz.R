@@ -1,15 +1,15 @@
-
-.onLoad <- function(libname, pkgname){
-}
-
+#' load-time processing
 .onAttach <- function(libname, pkgname){
   register_all_fonts()
   if(Sys.info()["sysname"] == "Windows"){
-    packageStartupMessage("You can see available font families by `names(windowsFonts())`")
+    funcname_fflist <- "names(windowsFonts())"
+    packageStartupMessage(gettextf("You can see available font families by `%s`", funcname_fflist, domain = "R-fontregisterer"))
   } else if(Sys.info()["sysname"] == "Darwin"){
-    packageStartupMessage("You can see available font families by `names(quartzFonts())`")
+    funcname_fflist <- "names(quartzFonts())"
+    packageStartupMessage(gettextf("You can see available font families by `%s`", funcname_fflist, domain = "R-fontregisterer"))
   } else {
-    packageStartupMessage("This package does nothing if your operating system is neither Mac nor Windows.")
-    packageStartupMessage("You can see available font families by `systemfonts::system_fonts()$family`.")
+    funcname_fflist <- "systemfonts::system_fonts()$family"
+    packageStartupMessage("This package does not register any font when importing if your operating system is neither Mac nor Windows", domain = "R-fontregisterer")
+    packageStartupMessage(gettextf("You can see available font families by `%s`", funcname_fflist, domain = "R-fontregisterer"))
   }
 }

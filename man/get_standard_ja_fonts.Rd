@@ -10,7 +10,7 @@ get_standard_ja_fonts()
 character vector of length 2. These elements are names of (1) Sans (Gothic) and (2) Serif (Mincho), Japanese font families which are installed standardly in your operating system.
 }
 \description{
-get OS-tandard Japanese font family names
+get OS-tandard Japanese font family names / (Ja) \\u3042
 }
 \details{
 This function returns character vector of length 2 which are standard Japanese font families for each operating system. Thus these families are OS-specified:\tabular{lcc}{

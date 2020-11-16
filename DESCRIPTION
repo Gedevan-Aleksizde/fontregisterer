@@ -4,9 +4,17 @@ Title: Cross-platform Auto Font Registerer For R Graphics
 Version: 0.2
 Author@R: person("Satoshi", "Katagiri", email = "katagiri.stsh@gmail.com", role = "aut") 
 Description: This package registers all your system fonts to R Graphic device when imported.
+Depends:
+  R (>= 3.2)
 Imports:
   tidyverse (>= 1.2.1),
   systemfonts (>= 0.3.2)
+Suggests:
+  ggplot2,
+  ggrepel
+  grid,
+  gridExtra
+Language: en, ja
 BugReports: https://github.com/Gedevan-Aleksizde/fontregisterer/issues
 License: MIT | file LICENSE
 Encoding: UTF-8

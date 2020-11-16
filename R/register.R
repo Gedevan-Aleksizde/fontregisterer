@@ -1,26 +1,39 @@
 #' Register Fonts / フォントを登録する
+#' @importFrom systemfont system_fonts
 #' @description register all system fonts obtained from `systemfonts` package by `windowsFonts` or `quartzFonts`/ `systemfonts` で取得したフォント名を全てOS固有のデバイス (`windowsFonts`, `quartzFonts`) に登録する.
 #' @export
 register_all_fonts <- function(){
   # TODO: dis-tidyversanize
+  f <- aggregate(. ~ family + name, data = systemfonts::system_fonts(), FUN = function(x) unique(x)[1])
+  # why???
+  f$path <- as.character(f$path)
+  f$index <- as.integer(f$index)
+  f$style <- as.character(f$style)
+  f$width <- as.integer(f$width)
+  f$weight <- as.integer(f$weight)
+  f$italic <- as.logical(f$italic)
+  f$monospace <- as.logical(f$monospace)
+  lapply(unique(f$family), function(x) get_styles(subset(f, family == x)))[[1]]
+
+
   if(Sys.info()["sysname"] %in% c("Darwin", "Windows")){
-    f <- dplyr::mutate(
-      tidyr::nest(
-        dplyr::group_by(
-          dplyr::ungroup(
-            dplyr::summarise_all(
-              dplyr::group_by(systemfonts::system_fonts(), family, name), ~.x[1]
-            )
-          ),
-          family
-        )
-      ),
-      style = purrr::map(data, get_styles)
-    )
+    f <- aggregate(. ~ family + name, data = systemfonts::system_fonts(), FUN = function(x) unique(x)[1])
+    # TODO: why???
+    f$path <- as.character(f$path)
+    f$index <- as.integer(f$index)
+    f$style <- as.character(f$style)
+    f$width <- as.integer(f$width)
+    f$weight <- as.integer(f$weight)
+    f$italic <- as.logical(f$italic)
+    f$monospace <- as.logical(f$monospace)
+    f <- lapply(setNames(as.list(unique(f$family)), unique(f$family)), function(x) get_styles(subset(f, family == x)))
+
   }
   if(Sys.info()["sysname"] == "Windows"){
-    do.call(windowsFonts, setNames(lapply(f$family, windowsFont), f$family))
+    do.call(windowsFonts, setNames(lapply(names(f), windowsFont), names(f)))
   } else if(Sys.info()["sysname"] == "Darwin"){
-    do.call(quartzFonts, setNames(lapply(f$style, quartzFont), f$family))
+    do.call(quartzFonts, setNames(lapply(f, quartzFont), names(f)))
+  } else {
+    warning("This function does not register any font because your operating system is neither Mac nor Windows")
   }
 }

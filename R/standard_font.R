@@ -48,7 +48,7 @@ get_standard_ja_fonts <- function(){
 #' @title set standard \code{sans}/\code{serif} family so that to refer the OS standard font
 #' @description change default Serif/Sans Serif fonts for Windows & Mac OS / Windows および Mac で \code{sans}/\code{serif} の参照するフォントを変更する. デフォルトはOSごとの標準日本語フォント
 set_standard_ja_font <- function(sans = NULL, serif = NULL){
-  if(Sys.info()["sysname"] == "Linux") stop("This function is invalid for Linux OS. If you want to change default font, please check out your system fontconfig or insteadly using quartz device.")
+  if(Sys.info()["sysname"] == "Linux") stop("This function is invalid for Linux OS. If you want to change default font, please check out your system fontconfig")
   familes <- get_standard_ja_font()
   if(!is.null(sans) && is.character(sans)) families["sans"] <- sans
   if(!is.null(serif) && is.character(serif)) families["serif"] <- serif
@@ -62,6 +62,6 @@ set_standard_ja_font <- function(sans = NULL, serif = NULL){
       serif = quartzFont(rep(families["serif"], 4))
     )
   }
-  message(paste("font family `sans` will refer to", families["sans"]))
-  message(paste("font family `serif` will refer to", families["serif"]))
+  message(gettextf("`%s` will refer to %s", sans = "sans", families["sans"]))
+  message(gettextf("`%s` will refer to %s", serif = "serif", families["serif"]))
 }
