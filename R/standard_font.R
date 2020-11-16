@@ -45,6 +45,7 @@ get_standard_ja_fonts <- function(){
 }
 
 #' @export
+#' @importFrom systemfonts system_fonts
 #' @title set standard \code{sans}/\code{serif} family so that to refer the OS standard font
 #' @description change default Serif/Sans Serif fonts for Windows & Mac OS / Windows および Mac で \code{sans}/\code{serif} の参照するフォントを変更する. デフォルトはOSごとの標準日本語フォント
 set_standard_ja_fonts <- function(sans = NULL, serif = NULL){
@@ -58,8 +59,8 @@ set_standard_ja_fonts <- function(sans = NULL, serif = NULL){
                  )
   } else if(Sys.info()["sysname"] == "Darwin"){
     quartzFonts(
-      sans = quartzFont(rep(families["sans"], 4)),
-      serif = quartzFont(rep(families["serif"], 4))
+      sans = quartzFont(get_styles(subset(system_fonts(), family == families["sans"]))),
+      serif = quartzFont(get_styles(subset(system_fonts(), family == families["serif"])))
     )
   }
   message(gettextf("`%s` will refer to %s", sans = "sans", families["sans"]))
