@@ -69,18 +69,17 @@ set_ja_font_standard <- function(sans = NULL, serif = NULL){
     message(gettextf("`%s` will refer to %s", serif = "serif", families["serif"]))
   }
   if("ggplot2" %in% .packages()){
-    # https://github.com/yihui/knitr/issues/1665#issuecomment-460130426
     ggplot_family <- "sans"
     getFromNamespace("theme_set", "ggplot2")(getFromNamespace("theme", "ggplot2")(
       text = getFromNamespace("element_text", "ggplot2")(family = ggplot_family)
     ))
     getFromNamespace("update_geom_defaults", "ggplot2")("text", list(family = ggplot_family))
     getFromNamespace("update_geom_defaults", "ggplot2")("label", list(family = ggplot_family))
-    message(gettextf("ggplot2 package will use %s as the default font family", sans = ggplot_family))
+    message(gettextf("`%s` package will use %s as the default font family", pkg = "ggplot2", sans = ggplot_family))
   }
   if("ggrepel" %in% .packages()){
     getFromNamespace("update_geom_defaults", "ggplot2")("text_repel", list(family = ggplot_family))
     getFromNamespace("update_geom_defaults", "ggplot2")("label_repel", list(family = ggplot_family))
-    message(gettextf("ggrepel package will use %s as the default font family", sans = ggplot_family))
+    message(gettextf("`%s` package will use %s as the default font family", pkg = "ggrepel", sans = ggplot_family))
   }
 }
