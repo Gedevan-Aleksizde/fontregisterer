@@ -71,7 +71,9 @@ set_ja_font_standard <- function(sans = NULL, serif = NULL){
   if("ggplot2" %in% .packages()){
     # https://github.com/yihui/knitr/issues/1665#issuecomment-460130426
     ggplot_family <- "sans"
-    getFromNamespace("theme_set", "ggplot2")(text = getFromNamespace("element_text", "ggplot2")(family = ggplot_family))
+    getFromNamespace("theme_set", "ggplot2")(getFromNamespace("theme", "ggplot2")(
+      text = getFromNamespace("element_text", "ggplot2")(family = ggplot_family)
+    ))
     getFromNamespace("update_geom_defaults", "ggplot2")("text", list(family = ggplot_family))
     getFromNamespace("update_geom_defaults", "ggplot2")("label", list(family = ggplot_family))
     message(gettextf("ggplot2 package will use %s as the default font family", sans = ggplot_family))
