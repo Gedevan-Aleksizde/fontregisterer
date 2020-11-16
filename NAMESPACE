@@ -3,5 +3,5 @@
 export(get_standard_ja_fonts)
 export(get_styles)
 export(register_all_fonts)
-export(set_standard_ja_font)
+export(set_standard_ja_fonts)
 importFrom(systemfonts,system_fonts)
