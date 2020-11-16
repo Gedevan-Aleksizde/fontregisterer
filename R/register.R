@@ -1,23 +1,10 @@
 #' Register Fonts / フォントを登録する
-#' @importFrom systemfont system_fonts
+#' @importFrom systemfonts system_fonts
 #' @description register all system fonts obtained from `systemfonts` package by `windowsFonts` or `quartzFonts`/ `systemfonts` で取得したフォント名を全てOS固有のデバイス (`windowsFonts`, `quartzFonts`) に登録する.
 #' @export
 register_all_fonts <- function(){
-  # TODO: dis-tidyversanize
-  f <- aggregate(. ~ family + name, data = systemfonts::system_fonts(), FUN = function(x) unique(x)[1])
-  # why???
-  f$path <- as.character(f$path)
-  f$index <- as.integer(f$index)
-  f$style <- as.character(f$style)
-  f$width <- as.integer(f$width)
-  f$weight <- as.integer(f$weight)
-  f$italic <- as.logical(f$italic)
-  f$monospace <- as.logical(f$monospace)
-  lapply(unique(f$family), function(x) get_styles(subset(f, family == x)))[[1]]
-
-
   if(Sys.info()["sysname"] %in% c("Darwin", "Windows")){
-    f <- aggregate(. ~ family + name, data = systemfonts::system_fonts(), FUN = function(x) unique(x)[1])
+    f <- aggregate(. ~ family + name, data = system_fonts(), FUN = function(x) unique(x)[1])
     # TODO: why???
     f$path <- as.character(f$path)
     f$index <- as.integer(f$index)

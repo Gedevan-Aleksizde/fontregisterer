@@ -7,13 +7,13 @@ Description: This package registers all your system fonts to R Graphic device wh
 Depends:
   R (>= 3.2)
 Imports:
-  tidyverse (>= 1.2.1),
   systemfonts (>= 0.3.2)
 Suggests:
-  ggplot2,
-  ggrepel
-  grid,
-  gridExtra
+  ggplot2 (>= 2.2.0),
+  ggrepel (>= 0.8.2),
+  gridExtra (>= 2.3),
+  cowplot,
+  patchwork (>= 1.0.1)
 Language: en, ja
 BugReports: https://github.com/Gedevan-Aleksizde/fontregisterer/issues
 License: MIT | file LICENSE
