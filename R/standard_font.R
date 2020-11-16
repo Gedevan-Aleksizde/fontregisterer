@@ -49,7 +49,8 @@ get_standard_ja_fonts <- function(){
 #' @title set standard \code{sans}/\code{serif} family so that to refer the OS standard font
 #' @description change default Serif/Sans Serif fonts for Windows & Mac OS / Windows および Mac で \code{sans}/\code{serif} の参照するフォントを変更する. デフォルトはOSごとの標準日本語フォント
 set_ja_font_standard <- function(sans = NULL, serif = NULL){
-  if(Sys.info()["sysname"] == "Linux") stop("This function is invalid for Linux OS. If you want to change default font, please check out your system fontconfig")
+  is_linux <- Sys.info()["sysname"] == "Linux"
+  if(is_linux) message("This function doesn't change font reference names if your operating system is Linux. If you want to change default font, please check out your system fontconfig")
   families <- get_standard_ja_fonts()
   if(!is.null(sans) && is.character(sans)) families["sans"] <- sans
   if(!is.null(serif) && is.character(serif)) families["serif"] <- serif
@@ -63,6 +64,21 @@ set_ja_font_standard <- function(sans = NULL, serif = NULL){
       serif = quartzFont(get_styles(subset(system_fonts(), family == families["serif"])))
     )
   }
-  message(gettextf("`%s` will refer to %s", sans = "sans", families["sans"]))
-  message(gettextf("`%s` will refer to %s", serif = "serif", families["serif"]))
+  if(!is_linux){
+    message(gettextf("`%s` will refer to %s", sans = "sans", families["sans"]))
+    message(gettextf("`%s` will refer to %s", serif = "serif", families["serif"]))
+  }
+  if("ggplot2" %in% .packages()){
+    # https://github.com/yihui/knitr/issues/1665#issuecomment-460130426
+    ggplot_family <- "sans"
+    getFromNamespace("theme_set", "ggplot2")(text = getFromNamespace("element_text", "ggplot2")(family = ggplot_family))
+    getFromNamespace("update_geom_defaults", "ggplot2")("text", list(family = ggplot_family))
+    getFromNamespace("update_geom_defaults", "ggplot2")("label", list(family = ggplot_family))
+    message(gettextf("ggplot2 package will use %s as the default font family", sans = ggplot_family))
+  }
+  if("ggrepel" %in% .packages()){
+    getFromNamespace("update_geom_defaults", "ggplot2")("text_repel", list(family = ggplot_family))
+    getFromNamespace("update_geom_defaults", "ggplot2")("label_repel", list(family = ggplot_family))
+    message(gettextf("ggrepel package will use %s as the default font family", sans = ggplot_family))
+  }
 }

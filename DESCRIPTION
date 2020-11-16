@@ -12,7 +12,6 @@ Suggests:
   ggplot2 (>= 2.2.0),
   ggrepel (>= 0.8.2),
   gridExtra (>= 2.3),
-  cowplot,
   patchwork (>= 1.0.1)
 Language: en, ja
 BugReports: https://github.com/Gedevan-Aleksizde/fontregisterer/issues
