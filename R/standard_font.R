@@ -15,7 +15,7 @@
 #'
 get_standard_ja_fonts <- function(){
   if(Sys.info()["sysname"] == "Windows"){
-    if(as.integer(str_extract(Sys.info()["release"], "^[0-9]+")) >=8){
+    if(as.integer(regmatches(Sys.info()["release"], regexpr(text = Sys.info()["release"], pattern = "^[0-9]+"))) >=8){
       # 游書体はWindows 8 以降は入っているはず
       family_sans <- "Yu Gothic"
       family_serif <- "Yu Mincho"
