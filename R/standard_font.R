@@ -55,31 +55,30 @@ set_ja_font_standard <- function(sans = NULL, serif = NULL){
   if(!is.null(sans) && is.character(sans)) families["sans"] <- sans
   if(!is.null(serif) && is.character(serif)) families["serif"] <- serif
   if(Sys.info()["sysname"] == "Windows"){
-    windowsFonts(sans = windowsFont(families["sans"]),
-                 serif = windowsFont(families["serif"])
-                 )
+    do.call(windowsFonts(setnames(list(windowsFont(families["sans"]), windowsFont(families["serif"])), c(families))))
+    default_families <- families
   } else if(Sys.info()["sysname"] == "Darwin"){
     quartzFonts(
       sans = quartzFont(get_styles(subset(system_fonts(), family == families["sans"]))),
       serif = quartzFont(get_styles(subset(system_fonts(), family == families["serif"])))
     )
+    default_families <- c("sans", "serif")
   }
   if(!is_linux){
-    message(gettextf("`%s` will refer to %s", sans = "sans", families["sans"]))
-    message(gettextf("`%s` will refer to %s", serif = "serif", families["serif"]))
+    message(gettextf("`%s` will refer to %s family", sans = default_families[1], families["sans"]))
+    message(gettextf("`%s` will refer to %s family", serif = default_families[2], families["serif"]))
   }
   if("ggplot2" %in% .packages()){
-    ggplot_family <- "sans"
     getFromNamespace("theme_set", "ggplot2")(getFromNamespace("theme", "ggplot2")(
-      text = getFromNamespace("element_text", "ggplot2")(family = ggplot_family)
+      text = getFromNamespace("element_text", "ggplot2")(family = default_families[1])
     ))
-    getFromNamespace("update_geom_defaults", "ggplot2")("text", list(family = ggplot_family))
-    getFromNamespace("update_geom_defaults", "ggplot2")("label", list(family = ggplot_family))
-    message(gettextf("`%s` package will use %s as the default font family", pkg = "ggplot2", sans = ggplot_family))
+    getFromNamespace("update_geom_defaults", "ggplot2")("text", list(family = default_families[1]))
+    getFromNamespace("update_geom_defaults", "ggplot2")("label", list(family = default_families[1]))
+    message(gettextf("`%s` package will use %s as the default font family", pkg = "ggplot2", sans = default_families[1]))
   }
   if("ggrepel" %in% .packages()){
-    getFromNamespace("update_geom_defaults", "ggplot2")("text_repel", list(family = ggplot_family))
-    getFromNamespace("update_geom_defaults", "ggplot2")("label_repel", list(family = ggplot_family))
-    message(gettextf("`%s` package will use %s as the default font family", pkg = "ggrepel", sans = ggplot_family))
+    getFromNamespace("update_geom_defaults", "ggplot2")("text_repel", list(family = default_families[1]))
+    getFromNamespace("update_geom_defaults", "ggplot2")("label_repel", list(family = default_families[1]))
+    message(gettextf("`%s` package will use %s as the default font family", pkg = "ggrepel", sans = default_families[1]))
   }
 }

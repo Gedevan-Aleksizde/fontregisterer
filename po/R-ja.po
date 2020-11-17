@@ -27,7 +27,7 @@ msgstr ""
 "この関数は Linux OS ではフォント参照を変更しません. デフォルトフォントを変更"
 "したい場合はお使いのシステムの fontconfig を確認してください"
 
-msgid "`%s` will refer to %s"
+msgid "`%s` will refer to %s family"
 msgstr "`%s` はフォントファミリ `%s` を参照するようになります"
 
 msgid "`%s` package will use %s as the default font family"
