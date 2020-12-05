@@ -55,7 +55,15 @@ set_ja_font_standard <- function(sans = NULL, serif = NULL){
   if(!is.null(sans) && is.character(sans)) families["sans"] <- sans
   if(!is.null(serif) && is.character(serif)) families["serif"] <- serif
   if(Sys.info()["sysname"] == "Windows"){
-    do.call(windowsFonts(setnames(list(windowsFont(families["sans"]), windowsFont(families["serif"])), c(families))))
+    do.call(windowsFonts,
+            setNames(
+              list(
+                windowsFont(families["sans"]),
+                windowsFont(families["serif"])
+                ),
+              c(families)
+              )
+            )
     default_families <- families
   } else if(Sys.info()["sysname"] == "Darwin"){
     quartzFonts(
