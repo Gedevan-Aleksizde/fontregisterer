@@ -61,16 +61,21 @@ set_ja_font_standard <- function(sans = NULL, serif = NULL){
                 windowsFont(families["sans"]),
                 windowsFont(families["serif"])
                 ),
-              c(families)
+              families
               )
             )
     default_families <- families
   } else if(Sys.info()["sysname"] == "Darwin"){
-    quartzFonts(
-      sans = quartzFont(get_styles(subset(system_fonts(), family == families["sans"]))),
-      serif = quartzFont(get_styles(subset(system_fonts(), family == families["serif"])))
+    do.call(quartzFonts,
+            setNames(
+              list(
+                quartzFont(rep(families["sans"], 4)),
+                quartzFont(rep(families["serif"], 4))
+              ),
+              families
+            )
     )
-    default_families <- c("sans", "serif")
+    default_families <- families
   }
   if(!is_linux){
     message(gettextf("`%s` will refer to %s family", sans = default_families[1], families["sans"]))
