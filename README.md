@@ -11,7 +11,7 @@
 run the following command in R
 
 ```r
-remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
+remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL)
 ```
 
 This package depends on `tidyverse` and `systemfonts`.
