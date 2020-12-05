@@ -77,10 +77,6 @@ set_ja_font_standard <- function(sans = NULL, serif = NULL){
     )
     default_families <- families
   }
-  if(!is_linux){
-    message(gettextf("`%s` will refer to %s family", sans = default_families[1], families["sans"]))
-    message(gettextf("`%s` will refer to %s family", serif = default_families[2], families["serif"]))
-  }
   if("ggplot2" %in% .packages()){
     getFromNamespace("theme_set", "ggplot2")(getFromNamespace("theme", "ggplot2")(
       text = getFromNamespace("element_text", "ggplot2")(family = default_families[1])
