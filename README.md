@@ -80,4 +80,8 @@ ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がる
 
 https://ill-identified.hatenablog.com/entry/2020/10/03/200618
 
+Japan.R 2020 で紹介しました.
+
+https://speakerdeck.com/ktgrstsh/display-cjk-font-in-any-gpraphic-device-and-platform-2020
+
 ALL YOUR FONT ARE BELONG TO YOU...
