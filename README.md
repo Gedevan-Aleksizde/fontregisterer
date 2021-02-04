@@ -1,4 +1,4 @@
-# Cross-platform Auto Font Registerer For R Graphics
+# Cross-platform Automatic Font Registerer For R Graphics
 
 全てのシステムフォントをRグラフィックスに登録するだけのパッケージ (クロスプラットフォーム)
 
