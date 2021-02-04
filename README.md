@@ -4,7 +4,7 @@
 
 **お使いのOSがLINUXの場合は不要です**
 
-**You don't have to use this package if your Operating System is LINUX**
+**You don't have to use this package if your operating system is LINUX**
 
 ## Installation
 
@@ -14,7 +14,7 @@ run the following command in R
 remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL)
 ```
 
-This package depends on `tidyverse` and `systemfonts`.
+This package depends on [`systemfonts`](https://cran.r-project.org/web/packages/systemfonts/index.html).
 
 
 ## Usage
