@@ -42,7 +42,7 @@ R で以下を実行してください
 remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL, type = "source")
 ```
 
-このパッケージは `tidyverse` と `systemfonts` に依存しています.
+このパッケージは [`systemfonts`](https://cran.r-project.org/web/packages/systemfonts/index.html) に依存しています.
 
 ## 使い方
 
