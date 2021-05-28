@@ -56,7 +56,7 @@ library(fontregisterer)
 
 登録されたフォントファミリ名は標準グラフィックにも `ggplot2` にも指定可能です.
 
-例えば, Windows (8以降) ならば `"Yu Mincho"` (游明朝), `Yu Gothic` (游ゴシック) などを, Mac なら `"Hiagino Mincho ProN"` (ヒラギノ明朝ProN), `"Hiragino Sans"` (ヒラギノ角ゴシック) などを指定可能です.
+例えば, Windows (8以降) ならば `"Yu Mincho"` (游明朝), `Yu Gothic` (游ゴシック) などを, Mac なら `"Hiragino Mincho ProN"` (ヒラギノ明朝ProN), `"Hiragino Sans"` (ヒラギノ角ゴシック) などを指定可能です.
 
 グラフのフォント指定は例えば標準グラフィックスなら
 
