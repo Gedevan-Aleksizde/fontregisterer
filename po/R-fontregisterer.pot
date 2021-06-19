@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fontregisterer 0.2\n"
 "Report-Msgid-Bugs-To: https://github.com/Gedevan-Aleksizde/fontregisterer/issues\n"
-"POT-Creation-Date: 2020-12-05 11:49\n"
+"POT-Creation-Date: 2020-12-06 14:31\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,9 +15,6 @@ msgid "This function does not register any font because your operating system is
 msgstr ""
 
 msgid "This function doesn't change font reference names if your operating system is Linux. If you want to change default font, please check out your system fontconfig"
-msgstr ""
-
-msgid "`%s` will refer to %s family"
 msgstr ""
 
 msgid "`%s` package will use %s as the default font family"
