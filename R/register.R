@@ -21,6 +21,6 @@ register_all_fonts <- function(){
   } else if(Sys.info()["sysname"] == "Darwin"){
     do.call(quartzFonts, setNames(lapply(f, quartzFont), names(f)))
   } else {
-    warning("This function does not register any font because your operating system is neither Mac nor Windows")
+    suppressPackageStartupMessages(gettext("This function does not register any font because your operating system is neither Mac nor Windows"))
   }
 }
