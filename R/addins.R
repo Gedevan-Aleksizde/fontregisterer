@@ -10,7 +10,7 @@ ui <- miniUI::miniPage(
       ))
       )
   ),
-  miniUI::gadgetTitleBar("Click Any Font Family Name To Copy"),
+  miniUI::gadgetTitleBar("Search Your Favorite Fonts", left = NULL),
   miniUI::miniContentPanel(
     DT::dataTableOutput("fonts")
   )
@@ -19,32 +19,22 @@ ui <- miniUI::miniPage(
 
 server <- function(input, output, session) {
   family = sort(unique(systemfonts::system_fonts()$family))
+
+  d <- data.frame(
+    family = family, text = SAMPLETEXT
+  )
   d <- DT::datatable(
-    data.frame(family = family,
-    text = SAMPLETEXT),
-    rownames = F,
-    extensions = c("Buttons", "Select"),
-    options =
-      list(
-        select = T,
-        dom = "Bfrtip",
-        buttons = list(
-          list(
-            extend = "copy",
-            text = 'Copy Font Name',
-            exportOptions = list(modifier = list(selected = T))
-            )
-          )
-        )
-      )
+    d,
+    rownames = F
+  )
   d <- DT::formatStyle(
-      d,
-      "text",
-      valueColumns = "family",
-      target = "cell",
-      fontFamily = DT::styleEqual(family,  sprintf("%s, Unicode BMP Fallback SIL", family))
-    )
-  output$fonts <- DT::renderDT(d)
+    d,
+    "text",
+    valueColumns = "family",
+    target = "cell",
+    fontFamily = DT::styleEqual(family,  sprintf("%s, Unicode BMP Fallback SIL", family))
+  )
+  output$fonts <- DT::renderDataTable(d)
 
   shiny::observeEvent(input$done, {
 
@@ -55,4 +45,5 @@ server <- function(input, output, session) {
 font_selector <- function(){
   shiny::runGadget(ui, server, viewer = shiny::dialogViewer(dialogName = "Font Selector"))
 }
+font_selector()
 
