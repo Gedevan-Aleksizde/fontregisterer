@@ -1,21 +1,10 @@
 ui <- miniUI::miniPage(
-  shiny::tags$head(
-    shiny::tags$style(htmltools::HTML(
-      paste(
-        sprintf(
-          '@font-face {
-      font-family: "Unicode BMP Fallback SIL;
-      src: url("%s") format("truetype");}',
-          system.file("fonts/UnicodeBMPFallback.ttf", package = "fontregisteter"))
-      ))
-      )
-  ),
+  shiny::tags$head(shiny::includeCSS(system.file("app/styles.css", package = "fontregisterer"), id = "fallbackfont")),
   miniUI::gadgetTitleBar("Search Your Favorite Fonts", left = NULL),
   miniUI::miniContentPanel(
     DT::dataTableOutput("fonts")
   )
 )
-
 
 server <- function(input, output, session) {
   family = sort(unique(systemfonts::system_fonts()$family))
@@ -32,7 +21,7 @@ server <- function(input, output, session) {
     "text",
     valueColumns = "family",
     target = "cell",
-    fontFamily = DT::styleEqual(family,  sprintf("%s, Unicode BMP Fallback SIL", family))
+    fontFamily = DT::styleEqual(family,  sprintf("%s,Unicode BMP Fallback SIL", family))
   )
   output$fonts <- DT::renderDataTable(d)
 
