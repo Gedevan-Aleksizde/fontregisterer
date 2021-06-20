@@ -45,5 +45,3 @@ server <- function(input, output, session) {
 font_selector <- function(){
   shiny::runGadget(ui, server, viewer = shiny::dialogViewer(dialogName = "Font Selector"))
 }
-font_selector()
-
