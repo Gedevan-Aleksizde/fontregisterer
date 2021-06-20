@@ -10,7 +10,8 @@ Imports:
   systemfonts (>= 0.3.2),
   shiny (>= 0.13),
   miniUI (>= 0.1.1),
-  rstudioapi (>= 0.5)
+  rstudioapi (>= 0.5),
+  DT (>= 0.18)
 Suggests:
   ggplot2 (>= 3.3.4),
   ggrepel (>= 0.8.2),
