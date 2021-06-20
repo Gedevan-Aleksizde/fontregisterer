@@ -1,0 +1,4 @@
+Name: Font Selector
+Description: display and copy font families which are installed in your system
+Binding: font_selector
+Interactive: true

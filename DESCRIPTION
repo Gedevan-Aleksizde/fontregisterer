@@ -7,9 +7,12 @@ Description: This package registers all your system fonts to R Graphic device wh
 Depends:
   R (>= 3.2)
 Imports:
-  systemfonts (>= 0.3.2)
+  systemfonts (>= 0.3.2),
+  shiny (>= 0.13),
+  miniUI (>= 0.1.1),
+  rstudioapi (>= 0.5)
 Suggests:
-  ggplot2 (>= 2.2.0),
+  ggplot2 (>= 3.3.4),
   ggrepel (>= 0.8.2),
   gridExtra (>= 2.3),
   patchwork (>= 1.0.1)
