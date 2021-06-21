@@ -32,5 +32,6 @@ server <- function(input, output, session) {
 }
 
 font_selector <- function(){
+  shiny::addResourcePath('app', system.file("app", package = "fontregisterer"))
   shiny::runGadget(ui, server, viewer = shiny::dialogViewer(dialogName = "Font Selector"))
 }

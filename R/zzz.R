@@ -16,5 +16,4 @@ SAMPLETEXT <- "
     packageStartupMessage("This package does not register any font when importing if your operating system is neither Mac nor Windows", domain = "R-fontregisterer")
     packageStartupMessage(gettextf("You can see available font families by `%s`", funcname_fflist, domain = "R-fontregisterer"))
   }
-  shiny::addResourcePath('app', system.file("app", package = "fontregisterer"))
 }
