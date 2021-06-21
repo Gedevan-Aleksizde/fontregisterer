@@ -10,7 +10,7 @@ server <- function(input, output, session) {
   family = sort(unique(systemfonts::system_fonts()$family))
 
   d <- data.frame(
-    family = family, text = readLines(system.file("app/sampletext.txt", package = "fontregisterer"))
+    family = family, text = readLines(system.file("app/sampletext.txt", package = "fontregisterer"), encoding = "UTF-8")
   )
   d <- DT::datatable(
     d,
