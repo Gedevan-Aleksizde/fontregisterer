@@ -97,9 +97,9 @@ ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がる
     フォントのサンプルを表示するRStudioアドインを追加しています. Addins
     -&gt; “Font Selector” を選択してください.
 
-&lt;dev/addin1.png&gt;
+<img src="dev/addin1.png" height="300" alt="addin Linux">
 
-&lt;dev/addin2.png&gt;
+<img src="dev/addin2.png" height="300" alt="addin Windows">
 
 このパッケージの意義や用途全般の話は詳しくは以下を参考にしてください.
 
