@@ -1,7 +1,3 @@
-SAMPLETEXT <- "
-123abcABCoO0lL1 日本語 简化字 正體字 Русский Українська हिंदी বাংল اللغة العربية 𒀝𒅗𒁺𒌑
-"
-
 #' load-time processing
 .onAttach <- function(libname, pkgname){
   register_all_fonts()
