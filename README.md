@@ -67,7 +67,8 @@ library(fontregisterer)
 `systemfonts::system_fonts()$family` で確認できます.
 
 登録されたフォントファミリ名は標準グラフィックにも `ggplot2`
-にも指定可能です.
+にも指定可能です. `png()`, `quartz()`
+デバイスでの保存時にも文字化けしません.
 
 例えば, Windows (8以降) ならば `"Yu Mincho"` (游明朝), `Yu Gothic`
 (游ゴシック) などを, Mac なら `"Hiragino Mincho ProN"`
@@ -96,6 +97,10 @@ ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がる
     フォントのサンプルを表示するRStudioアドインを追加しています. Addins
     -&gt; “Font Selector” を選択してください.
 
+&lt;dev/addin1.png&gt;
+
+&lt;dev/addin2.png&gt;
+
 このパッケージの意義や用途全般の話は詳しくは以下を参考にしてください.
 
 <https://ill-identified.hatenablog.com/entry/2020/10/03/200618>
@@ -105,3 +110,28 @@ Japan.R 2020 で紹介しました.
 <https://speakerdeck.com/ktgrstsh/display-cjk-font-in-any-gpraphic-device-and-platform-2020>
 
 ALL YOUR FONT ARE BELONG TO YOU…
+
+## 既知の問題
+
+特に Windows OS において,
+いくつかのフォント・グラフィックデバイスの組み合わせ時にフォントが認識されないことがあります.
+これは主に Windows OS では fontconfig ライブラリが使えず,
+**systemfonts** (v1.0.1 現在)
+パッケージやグラフィックデバイスでフォント検出の独自実装をせざるを得ないのが原因です.
+また本パッケージがなくとも **ragg** でフォント選択はできますが, 同じく
+**systemfonts** に依存しているため一部のフォントが使用できません.
+依存パッケージの問題のため, **fontregisterer** では解決が難しいです.
+
+例:
+
+1.  BIZ UDフォントシリーズ Windows
+    10にプリインストールされているものはウェイトが500のため, Windows
+    では標準ウェイトのフォントとしてマッチングできず,
+    使用できないことがあります. Linux や Mac
+    などではおそらく正常に動作します.
+2.  イタリック体を持たないフォント (多くの日本語フォント)
+    イタリック体と斜体 (スラント体) は厳密には異なります.
+    日本語でイタリック体を指定してもうまく表示されないことが多いです.
+3.  フォントファミリ名にスペースを含むもの **svglite**
+    でうまくフォント名を認識できないことがあります. SVG
+    ファイルはテキスト形式なので手動で引用符で囲むなどして修正することができます.
