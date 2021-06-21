@@ -13,7 +13,7 @@
 run the following command in R
 
 ``` r
-remotes::install_github("Gedevan-Aleksizde/fontregisterer", repos = NULL)
+remotes::install_github("Gedevan-Aleksizde/fontregisterer", upgrade = "never")
 ```
 
 This package depends on
