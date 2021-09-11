@@ -3,5 +3,6 @@
 export(get_standard_ja_fonts)
 export(get_styles)
 export(register_all_fonts)
+export(rsvg_fallback)
 export(set_ja_font_standard)
 importFrom(systemfonts,system_fonts)
