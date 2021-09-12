@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fontregisterer 0.3\n"
-"POT-Creation-Date: 2021-09-11 21:31\n"
+"POT-Creation-Date: 2021-09-12 16:52\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,9 +9,6 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
-msgid "type `%s` is not available."
-msgstr ""
 
 msgid "This function does not register any font because your operating system is neither Mac nor Windows"
 msgstr ""
