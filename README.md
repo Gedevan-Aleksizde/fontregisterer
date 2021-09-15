@@ -41,6 +41,8 @@ ALL YOUR FONT ARE BELONG TO YOU…
 
 ## インストール方法
 
+**注**: まずこちらを一読してこのパッケージが必要かどうか判断したほうが良いかもしれません: https://ill-identified.hatenablog.com/entry/2021/09/10/231230
+
 R で以下を実行してください
 
 ``` r
@@ -108,6 +110,10 @@ ggplot(data.frame(x = 0), aes(x = 0, y = 0, label = "日本語表示で広がる
 Japan.R 2020 で紹介しました.
 
 <https://speakerdeck.com/ktgrstsh/display-cjk-font-in-any-gpraphic-device-and-platform-2020>
+
+2021年9月時点での最新の情報
+
+https://ill-identified.hatenablog.com/entry/2021/09/10/231230
 
 ALL YOUR FONT ARE BELONG TO YOU…
 
