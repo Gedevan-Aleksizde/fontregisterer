@@ -8,7 +8,7 @@ get_styles <- function(data){
   styles <- c("plain", "normal", "regular", "medium", "bold", "italic", "bolditalic", "w3")
   styles_plain <- c("plain", "normal", "regular", "medium", "w3")
   data$style <- with(data, factor(tolower(style), styles))
-  plain <- subset(data, width == "normal" && weight == "normal")
+  plain <- subset(data, width == "normal" & weight == "normal")
   if(NROW(plain) > 0){
     plain <- plain
   } else {
@@ -25,7 +25,7 @@ get_styles <- function(data){
   } else {
     bold <- plain
   }
-  italic <- subset(data, style == "italic" || italic)
+  italic <- subset(data, style == "italic" | italic)
   if(NROW(italic) > 0){
     italic <- italic$name[1]
   } else {
